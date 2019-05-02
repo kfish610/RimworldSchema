@@ -1936,7 +1936,7 @@
       <xs:element minOccurs="0" name="customCountRanges">
         <xs:complexType>
           <xs:sequence>
-            <xs:any minOccurs="0" maxOccurs="unbounded" />
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -5868,7 +5868,7 @@
               <xs:element minOccurs="0" name="fixedInventory">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:any minOccurs="0" maxOccurs="unbounded" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -5962,7 +5962,7 @@
               <xs:element minOccurs="0" name="products">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:any minOccurs="0" maxOccurs="unbounded" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -6440,7 +6440,7 @@
               <xs:element minOccurs="0" name="costList">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:any minOccurs="0" maxOccurs="unbounded" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -6550,21 +6550,21 @@
               <xs:element minOccurs="0" name="killedLeavings">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:any minOccurs="0" maxOccurs="unbounded" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element minOccurs="0" name="butcherProducts">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:any minOccurs="0" maxOccurs="unbounded" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element minOccurs="0" name="smeltProducts">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:any minOccurs="0" maxOccurs="unbounded" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -6769,7 +6769,7 @@
               <xs:element minOccurs="0" name="costList">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:any minOccurs="0" maxOccurs="unbounded" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>

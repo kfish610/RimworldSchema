@@ -239,7 +239,8 @@ namespace RimworldSchema
                             list.Items.Add(new XmlSchemaAny()
                             {
                                 MinOccurs = 0,
-                                MaxOccursString = "unbounded"
+                                MaxOccursString = "unbounded",
+                                ProcessContents = XmlSchemaContentProcessing.Lax
                             });
                             seq.Items.Add(new XmlSchemaElement()
                             {
@@ -258,7 +259,8 @@ namespace RimworldSchema
                             list.Items.Add(new XmlSchemaAny()
                             {
                                 MinOccurs = 0,
-                                MaxOccursString = "unbounded"
+                                MaxOccursString = "unbounded",
+                                ProcessContents = XmlSchemaContentProcessing.Lax
                             });
                             seq.Items.Add(new XmlSchemaElement()
                             {
