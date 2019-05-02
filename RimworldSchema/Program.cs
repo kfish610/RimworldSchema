@@ -50,7 +50,8 @@ namespace RimworldSchema
 
             XmlSchema schema = new XmlSchema
             {
-                TargetNamespace = "https://github.com/kfish610/RimWorldSchema"
+                TargetNamespace = "https://github.com/kfish610/RimWorldSchema",
+                ElementFormDefault = XmlSchemaForm.Qualified
             };
 
             var defsRoot = new XmlSchemaElement
