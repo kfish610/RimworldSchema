@@ -13,7 +13,6 @@ Change your root `<Defs>` tag to:
 ```
 
 ## IDE Tooling
-> Note: Tooling for XSD and DTD can be *very* finicky, so some features may not work in all IDEs, and sometimes the best way to fix your problem will be to close and reopen.
 
 ### Visual Studio Code
 [XML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml) (Red Hat)
