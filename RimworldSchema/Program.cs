@@ -45,7 +45,7 @@ namespace RimworldSchema
 
             var defs =
                 from type in rimworld.GetExportedTypes()
-                where type.IsClass && !type.IsAbstract && Regex.Match(type.Name, @"\wDef$").Success
+                where type.IsClass && !type.IsAbstract && typeof(Def).IsAssignableFrom(type)
                 select type;
 
             XmlSchema schema = new XmlSchema
@@ -61,8 +61,12 @@ namespace RimworldSchema
             var defsType = new XmlSchemaComplexType();
             defsRoot.SchemaType = defsType;
 
-            var defsSeq = new XmlSchemaSequence();
-            defsType.Particle = defsSeq;
+            var defsChoice = new XmlSchemaChoice()
+            {
+                MinOccurs = 0,
+                MaxOccursString = "unbounded"
+            };
+            defsType.Particle = defsChoice;
 
             schema.Items.Add(defsRoot);
 
@@ -73,11 +77,10 @@ namespace RimworldSchema
 
             foreach (var def in defs)
             {
-                defsSeq.Items.Add(new XmlSchemaElement()
+                defsChoice.Items.Add(new XmlSchemaElement()
                 {
                     Name = def.Name,
-                    SchemaType = Derive(def),
-                    MinOccurs = 0
+                    SchemaType = Derive(def)
                 });
             }
 
@@ -228,30 +231,71 @@ namespace RimworldSchema
                     else if (field.FieldType.IsGenericType && (field.FieldType.GetGenericTypeDefinition() == typeof(List<>) || field.FieldType.GetGenericTypeDefinition() == typeof(HashSet<>)))
                     {
                         Type elemT = field.FieldType.GetGenericArguments()[0];
-                        if (!Aliases.ContainsKey(elemT) && !definedTypes.Any(x => x == elemT.Name.ToCamelCase()))
+                        if (elemT == typeof(ThingDefCountClass))
                         {
-                            definedTypes.Add(elemT.Name.ToCamelCase());
-                            var t = Derive(elemT);
-                            t.Name = elemT.Name.ToCamelCase();
-                            types.Add(t);
-                        }
-                        var list = new XmlSchemaSequence();
-                        list.Items.Add(new XmlSchemaElement()
-                        {
-                            Name = "li",
-                            SchemaTypeName = Aliases.ContainsKey(elemT) ? new XmlQualifiedName(Aliases[elemT], "http://www.w3.org/2001/XMLSchema") : new XmlQualifiedName(elemT.Name.ToCamelCase(), "https://github.com/kfish610/RimWorldSchema"),
-                            MinOccurs = 0,
-                            MaxOccursString = "unbounded"
-                        });
-                        seq.Items.Add(new XmlSchemaElement()
-                        {
-                            Name = field.Name,
-                            SchemaType = new XmlSchemaComplexType()
+
+                            var list = new XmlSchemaSequence();
+                            list.Items.Add(new XmlSchemaAny()
                             {
-                                Particle = list
-                            },
-                            MinOccurs = 0
-                        });
+                                MinOccurs = 0,
+                                MaxOccursString = "unbounded"
+                            });
+                            seq.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = field.Name,
+                                SchemaType = new XmlSchemaComplexType()
+                                {
+                                    Particle = list
+                                },
+                                MinOccurs = 0
+                            });
+                        }
+                        else if (elemT == typeof(ThingDefCountRangeClass))
+                        {
+
+                            var list = new XmlSchemaSequence();
+                            list.Items.Add(new XmlSchemaAny()
+                            {
+                                MinOccurs = 0,
+                                MaxOccursString = "unbounded"
+                            });
+                            seq.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = field.Name,
+                                SchemaType = new XmlSchemaComplexType()
+                                {
+                                    Particle = list
+                                },
+                                MinOccurs = 0
+                            });
+                        }
+                        else
+                        {
+                            if (!Aliases.ContainsKey(elemT) && !definedTypes.Any(x => x == elemT.Name.ToCamelCase()))
+                            {
+                                definedTypes.Add(elemT.Name.ToCamelCase());
+                                var t = Derive(elemT);
+                                t.Name = elemT.Name.ToCamelCase();
+                                types.Add(t);
+                            }
+                            var list = new XmlSchemaSequence();
+                            list.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = "li",
+                                SchemaTypeName = Aliases.ContainsKey(elemT) ? new XmlQualifiedName(Aliases[elemT], "http://www.w3.org/2001/XMLSchema") : new XmlQualifiedName(elemT.Name.ToCamelCase(), "https://github.com/kfish610/RimWorldSchema"),
+                                MinOccurs = 0,
+                                MaxOccursString = "unbounded"
+                            });
+                            seq.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = field.Name,
+                                SchemaType = new XmlSchemaComplexType()
+                                {
+                                    Particle = list
+                                },
+                                MinOccurs = 0
+                            });
+                        }
                     }
                     else if (field.FieldType.IsArray)
                     {
@@ -358,6 +402,92 @@ namespace RimworldSchema
                     }
                     else
                     {
+                        if (field.FieldType == typeof(IntRange))
+                        {
+                            var choice = new XmlSchemaChoice();
+                            var restriction = new XmlSchemaSimpleTypeRestriction()
+                            {
+                                BaseTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
+                            };
+                            restriction.Facets.Add(new XmlSchemaPatternFacet()
+                            {
+                                Value = @"[0-9]+~[0-9]+"
+                            });
+                            choice.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = field.Name,
+                                SchemaType = new XmlSchemaSimpleType()
+                                {
+                                    Content = restriction
+                                },
+                                MinOccurs = 0
+                            });
+                            var range = new XmlSchemaSequence();
+                            range.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = "min",
+                                SchemaTypeName = new XmlQualifiedName("int", "http://www.w3.org/2001/XMLSchema")
+                            });
+                            range.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = "max",
+                                SchemaTypeName = new XmlQualifiedName("int", "http://www.w3.org/2001/XMLSchema")
+                            });
+                            choice.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = field.Name,
+                                SchemaType = new XmlSchemaComplexType()
+                                {
+                                    Particle = range
+                                },
+                                MinOccurs = 0
+                            });
+                            seq.Items.Add(choice);
+                            continue;
+                        }
+                        if (field.FieldType == typeof(FloatRange))
+                        {
+                            var choice = new XmlSchemaChoice();
+                            var restriction = new XmlSchemaSimpleTypeRestriction()
+                            {
+                                BaseTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
+                            };
+                            restriction.Facets.Add(new XmlSchemaPatternFacet()
+                            {
+                                Value = @"[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)"
+                            });
+                            choice.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = field.Name,
+                                SchemaType = new XmlSchemaSimpleType()
+                                {
+                                    Content = restriction
+                                },
+                                MinOccurs = 0
+                            });
+                            var range = new XmlSchemaSequence();
+                            range.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = "min",
+                                SchemaTypeName = new XmlQualifiedName("float", "http://www.w3.org/2001/XMLSchema")
+                            });
+                            range.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = "max",
+                                SchemaTypeName = new XmlQualifiedName("float", "http://www.w3.org/2001/XMLSchema")
+                            });
+                            choice.Items.Add(new XmlSchemaElement()
+                            {
+                                Name = field.Name,
+                                SchemaType = new XmlSchemaComplexType()
+                                {
+                                    Particle = range
+                                },
+                                MinOccurs = 0
+                            });
+                            seq.Items.Add(choice);
+                            continue;
+                        }
                         if (!definedTypes.Any(x => x == field.FieldType.Name.ToCamelCase()))
                         {
                             definedTypes.Add(field.FieldType.Name.ToCamelCase());

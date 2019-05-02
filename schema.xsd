@@ -51,13 +51,61 @@
   <xs:complexType name="skyfallerProperties">
     <xs:sequence>
       <xs:element minOccurs="0" name="hitRoof" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ticksToImpactRange" type="intRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="ticksToImpactRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ticksToImpactRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="reversed" type="xs:boolean" />
       <xs:element minOccurs="0" name="explosionRadius" type="xs:float" />
       <xs:element minOccurs="0" name="explosionDamage" type="xs:string" />
       <xs:element minOccurs="0" name="explosionDamageFactor" type="xs:float" />
-      <xs:element minOccurs="0" name="metalShrapnelCountRange" type="intRange" />
-      <xs:element minOccurs="0" name="rubbleShrapnelCountRange" type="intRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="metalShrapnelCountRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="metalShrapnelCountRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="rubbleShrapnelCountRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="rubbleShrapnelCountRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="shrapnelDistanceFactor" type="xs:float" />
       <xs:element minOccurs="0" name="movementType" type="skyfallerMovementType" />
       <xs:element minOccurs="0" name="speed" type="xs:float" />
@@ -193,7 +241,23 @@
       <xs:element minOccurs="0" name="purpose" type="plantPurpose" />
       <xs:element minOccurs="0" name="topWindExposure" type="xs:float" />
       <xs:element minOccurs="0" name="maxMeshCount" type="xs:int" />
-      <xs:element minOccurs="0" name="visualSizeRange" type="floatRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="visualSizeRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="visualSizeRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="dropLeaves" type="xs:boolean" />
       <xs:element minOccurs="0" name="MaxMaxMeshCount" type="xs:int" />
     </xs:sequence>
@@ -343,7 +407,23 @@
       <xs:element minOccurs="0" name="useLeatherFrom" type="xs:string" />
       <xs:element minOccurs="0" name="leatherDef" type="xs:string" />
       <xs:element minOccurs="0" name="specialShadowData" type="shadowData" />
-      <xs:element minOccurs="0" name="soundCallIntervalRange" type="intRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="soundCallIntervalRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="soundCallIntervalRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="soundMeleeHitPawn" type="xs:string" />
       <xs:element minOccurs="0" name="soundMeleeHitBuilding" type="xs:string" />
       <xs:element minOccurs="0" name="soundMeleeMiss" type="xs:string" />
@@ -441,7 +521,23 @@
       <xs:element minOccurs="0" name="mineableDropChance" type="xs:float" />
       <xs:element minOccurs="0" name="mineableYieldWasteable" type="xs:boolean" />
       <xs:element minOccurs="0" name="mineableScatterCommonality" type="xs:float" />
-      <xs:element minOccurs="0" name="mineableScatterLumpSizeRange" type="intRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="mineableScatterLumpSizeRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="mineableScatterLumpSizeRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="ignoreStoredThingsBeauty" type="xs:boolean" />
       <xs:element minOccurs="0" name="isTrap" type="xs:boolean" />
       <xs:element minOccurs="0" name="trapDestroyOnSpring" type="xs:boolean" />
@@ -451,7 +547,23 @@
       <xs:element minOccurs="0" name="unpoweredWorkTableWorkSpeedFactor" type="xs:float" />
       <xs:element minOccurs="0" name="workSpeedPenaltyOutdoors" type="xs:boolean" />
       <xs:element minOccurs="0" name="workSpeedPenaltyTemperature" type="xs:boolean" />
-      <xs:element minOccurs="0" name="watchBuildingStandDistanceRange" type="intRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="watchBuildingStandDistanceRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="watchBuildingStandDistanceRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="watchBuildingStandRectWidth" type="xs:int" />
       <xs:element minOccurs="0" name="joyKind" type="xs:string" />
       <xs:element minOccurs="0" name="haulToContainerDuration" type="xs:int" />
@@ -461,7 +573,23 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="blockTurretTracking" type="xs:boolean" />
       <xs:element minOccurs="0" name="accuracyPenalty" type="xs:float" />
-      <xs:element minOccurs="0" name="expireSeconds" type="floatRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="expireSeconds">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="expireSeconds">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="rotationSpeed" type="xs:float" />
     </xs:sequence>
   </xs:complexType>
@@ -788,6 +916,142 @@
       <xs:enumeration value="RG16" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="subSoundDef">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="onCamera" type="xs:boolean" />
+      <xs:element minOccurs="0" name="muteWhenPaused" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tempoAffectedByGameSpeed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="grains">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="audioGrain" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice>
+        <xs:element minOccurs="0" name="volumeRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="volumeRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="pitchRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="pitchRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="distRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="distRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="repeatMode" type="repeatSelectMode" />
+      <xs:element minOccurs="0" name="paramMappings">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="soundParameterMapping" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="filters">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="soundFilter" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice>
+        <xs:element minOccurs="0" name="startDelayRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="startDelayRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="sustainLoop" type="xs:boolean" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="sustainLoopDurationRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="sustainLoopDurationRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="sustainIntervalRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="sustainIntervalRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="sustainAttack" type="xs:float" />
+      <xs:element minOccurs="0" name="sustainSkipFirstAttack" type="xs:boolean" />
+      <xs:element minOccurs="0" name="sustainRelease" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="soundFilter">
     <xs:sequence />
   </xs:complexType>
@@ -873,7 +1137,23 @@
   <xs:complexType name="pawnInventoryOption">
     <xs:sequence>
       <xs:element minOccurs="0" name="thingDef" type="xs:string" />
-      <xs:element minOccurs="0" name="countRange" type="intRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="countRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="countRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="choiceChance" type="xs:float" />
       <xs:element minOccurs="0" name="skipChance" type="xs:float" />
       <xs:element minOccurs="0" name="subOptionsTakeAll">
@@ -890,12 +1170,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="thingDefCountClass">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="thingDef" type="xs:string" />
-      <xs:element minOccurs="0" name="count" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="qualityCategory">
@@ -1326,6 +1600,156 @@
       <xs:enumeration value="BadExtreme" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="subEffecterDef">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="subEffecterClass" type="xs:string" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="burstCount">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="burstCount">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="ticksBetweenMotes" type="xs:int" />
+      <xs:element minOccurs="0" name="chancePerTick" type="xs:float" />
+      <xs:element minOccurs="0" name="spawnLocType" type="moteSpawnLocType" />
+      <xs:element minOccurs="0" name="positionLerpFactor" type="xs:float" />
+      <xs:element minOccurs="0" name="positionRadius" type="xs:float" />
+      <xs:element minOccurs="0" name="moteDef" type="xs:string" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="angle">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="angle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="absoluteAngle" type="xs:boolean" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="speed">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="speed">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="rotation">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="rotation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="rotationRate">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="rotationRate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="scale">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="scale">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element minOccurs="0" name="airTime">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="airTime">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="soundDef" type="xs:string" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="intermittentSoundInterval">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="intermittentSoundInterval">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" name="ticksBeforeSustainerStart" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:simpleType name="moteSpawnLocType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="OnSource" />
@@ -1414,22 +1838,6 @@
       <xs:enumeration value="Top" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="def">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="defName" type="xs:string" />
-      <xs:element minOccurs="0" name="label" type="xs:string" />
-      <xs:element minOccurs="0" name="description" type="xs:string" />
-      <xs:element minOccurs="0" name="ignoreConfigErrors" type="xs:boolean" />
-      <xs:element minOccurs="0" name="modExtensions">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="defModExtension" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element minOccurs="0" name="DefaultDefName" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="worldObjectCompProperties">
     <xs:sequence>
       <xs:element minOccurs="0" name="compClass" type="xs:string" />
@@ -1508,15 +1916,47 @@
   </xs:complexType>
   <xs:complexType name="stockGenerator">
     <xs:sequence>
-      <xs:element minOccurs="0" name="countRange" type="intRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="countRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+~[0-9]+" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="countRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:int" />
+              <xs:element name="max" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="customCountRanges">
         <xs:complexType>
           <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountRangeClass" />
+            <xs:any minOccurs="0" maxOccurs="unbounded" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" name="totalPriceRange" type="floatRange" />
+      <xs:choice>
+        <xs:element minOccurs="0" name="totalPriceRange">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="totalPriceRange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="min" type="xs:float" />
+              <xs:element name="max" type="xs:float" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element minOccurs="0" name="maxTechLevelGenerate" type="techLevel" />
       <xs:element minOccurs="0" name="maxTechLevelBuy" type="techLevel" />
       <xs:element minOccurs="0" name="price" type="priceType" />
@@ -1532,12 +1972,6 @@
       <xs:enumeration value="Exorbitant" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="thingDefCountRangeClass">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="thingDef" type="xs:string" />
-      <xs:element minOccurs="0" name="countRange" type="intRange" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="thoughtStage">
     <xs:sequence>
       <xs:element minOccurs="0" name="label" type="xs:string" />
@@ -1594,6 +2028,12 @@
       <xs:enumeration value="Slave" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="floatRange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="min" type="xs:float" />
+      <xs:element minOccurs="0" name="max" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:simpleType name="qualityGenerator">
     <xs:restriction base="xs:string">
       <xs:enumeration value="BaseGen" />
@@ -1601,6 +2041,12 @@
       <xs:enumeration value="Gift" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="intRange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="min" type="xs:int" />
+      <xs:element minOccurs="0" name="max" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:simpleType name="taleType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Volatile" />
@@ -2157,12 +2603,6 @@
       <xs:element minOccurs="0" name="color" type="color" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="intRange">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="min" type="xs:int" />
-      <xs:element minOccurs="0" name="max" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:simpleType name="techLevel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Undefined" />
@@ -2175,12 +2615,6 @@
       <xs:enumeration value="Archotech" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="floatRange">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="min" type="xs:float" />
-      <xs:element minOccurs="0" name="max" type="xs:float" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="simpleCurve">
     <xs:sequence />
   </xs:complexType>
@@ -2292,8 +2726,8 @@
   </xs:complexType>
   <xs:element name="Defs">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="BillRepeatModeDef">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BillRepeatModeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="listOrder" type="xs:int" />
@@ -2311,7 +2745,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="BillStoreModeDef">
+        <xs:element name="BillStoreModeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="listOrder" type="xs:int" />
@@ -2329,7 +2763,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="BiomeDef">
+        <xs:element name="BiomeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -2393,7 +2827,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="BodyTypeDef">
+        <xs:element name="BodyTypeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="bodyNakedGraphicPath" type="xs:string" />
@@ -2413,7 +2847,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ChemicalDef">
+        <xs:element name="ChemicalDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="addictionHediff" type="xs:string" />
@@ -2441,7 +2875,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="DifficultyDef">
+        <xs:element name="DifficultyDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="drawColor" type="color" />
@@ -2483,7 +2917,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ExpectationDef">
+        <xs:element name="ExpectationDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="thoughtStage" type="xs:int" />
@@ -2504,7 +2938,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="FactionDef">
+        <xs:element name="FactionDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="isPlayer" type="xs:boolean" />
@@ -2528,7 +2962,23 @@
               <xs:element minOccurs="0" name="canStageAttacks" type="xs:boolean" />
               <xs:element minOccurs="0" name="canUseAvoidGrid" type="xs:boolean" />
               <xs:element minOccurs="0" name="earliestRaidDays" type="xs:float" />
-              <xs:element minOccurs="0" name="allowedArrivalTemperatureRange" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="allowedArrivalTemperatureRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="allowedArrivalTemperatureRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="basicMemberKind" type="xs:string" />
               <xs:element minOccurs="0" name="startingResearchTags">
                 <xs:complexType>
@@ -2592,9 +3042,41 @@
                 </xs:complexType>
               </xs:element>
               <xs:element minOccurs="0" name="geneticVariance" type="xs:float" />
-              <xs:element minOccurs="0" name="startingGoodwill" type="intRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="startingGoodwill">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+~[0-9]+" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="startingGoodwill">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:int" />
+                      <xs:element name="max" type="xs:int" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="mustStartOneEnemy" type="xs:boolean" />
-              <xs:element minOccurs="0" name="naturalColonyGoodwill" type="intRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="naturalColonyGoodwill">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+~[0-9]+" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="naturalColonyGoodwill">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:int" />
+                      <xs:element name="max" type="xs:int" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="goodwillDailyGain" type="xs:float" />
               <xs:element minOccurs="0" name="goodwillDailyFall" type="xs:float" />
               <xs:element minOccurs="0" name="permanentEnemy" type="xs:boolean" />
@@ -2621,7 +3103,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="FeatureDef">
+        <xs:element name="FeatureDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -2666,7 +3148,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="FleshTypeDef">
+        <xs:element name="FleshTypeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="ateDirect" type="xs:string" />
@@ -2693,7 +3175,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="HairDef">
+        <xs:element name="HairDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="texPath" type="xs:string" />
@@ -2719,7 +3201,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="HediffGiverSetDef">
+        <xs:element name="HediffGiverSetDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="hediffGivers">
@@ -2743,7 +3225,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="HibernatableStateDef">
+        <xs:element name="HibernatableStateDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -2760,7 +3242,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="HistoryAutoRecorderDef">
+        <xs:element name="HistoryAutoRecorderDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -2781,7 +3263,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="HistoryAutoRecorderGroupDef">
+        <xs:element name="HistoryAutoRecorderGroupDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="useFixedScale" type="xs:boolean" />
@@ -2810,7 +3292,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="IncidentCategoryDef">
+        <xs:element name="IncidentCategoryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="needsParmsPoints" type="xs:boolean" />
@@ -2829,7 +3311,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="IncidentDef">
+        <xs:element name="IncidentDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -2880,9 +3362,41 @@
               <xs:element minOccurs="0" name="pawnMustBeCapableOfViolence" type="xs:boolean" />
               <xs:element minOccurs="0" name="pawnFixedGender" type="gender" />
               <xs:element minOccurs="0" name="gameCondition" type="xs:string" />
-              <xs:element minOccurs="0" name="durationDays" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="durationDays">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="durationDays">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="diseaseIncident" type="xs:string" />
-              <xs:element minOccurs="0" name="diseaseVictimFractionRange" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="diseaseVictimFractionRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="diseaseVictimFractionRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="diseaseMaxVictims" type="xs:int" />
               <xs:element minOccurs="0" name="diseaseBiomeRecords">
                 <xs:complexType>
@@ -2920,7 +3434,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="IncidentTargetTagDef">
+        <xs:element name="IncidentTargetTagDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -2937,7 +3451,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="InspirationDef">
+        <xs:element name="InspirationDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="inspirationClass" type="xs:string" />
@@ -3028,7 +3542,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="InteractionDef">
+        <xs:element name="InteractionDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="interactionMote" type="xs:string" />
@@ -3055,7 +3569,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="JoyGiverDef">
+        <xs:element name="JoyGiverDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="giverClass" type="xs:string" />
@@ -3095,7 +3609,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="JoyKindDef">
+        <xs:element name="JoyKindDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="needsThing" type="xs:boolean" />
@@ -3113,7 +3627,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="LifeStageDef">
+        <xs:element name="LifeStageDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="visible" type="xs:boolean" />
@@ -3150,7 +3664,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="MainButtonDef">
+        <xs:element name="MainButtonDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -3175,7 +3689,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="NeedDef">
+        <xs:element name="NeedDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="needClass" type="xs:string" />
@@ -3210,7 +3724,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PawnColumnDef">
+        <xs:element name="PawnColumnDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -3241,7 +3755,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PawnGroupKindDef">
+        <xs:element name="PawnGroupKindDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -3259,7 +3773,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PawnRelationDef">
+        <xs:element name="PawnRelationDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -3291,7 +3805,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PawnTableDef">
+        <xs:element name="PawnTableDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="columns">
@@ -3317,7 +3831,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PawnsArrivalModeDef">
+        <xs:element name="PawnsArrivalModeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -3341,7 +3855,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PrisonerInteractionModeDef">
+        <xs:element name="PrisonerInteractionModeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="listOrder" type="xs:int" />
@@ -3359,7 +3873,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RaidStrategyDef">
+        <xs:element name="RaidStrategyDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -3392,7 +3906,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RecordDef">
+        <xs:element name="RecordDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="type" type="recordType" />
@@ -3418,7 +3932,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ResearchTabDef">
+        <xs:element name="ResearchTabDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -3435,7 +3949,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RiverDef">
+        <xs:element name="RiverDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="spawnFlowThreshold" type="xs:int" />
@@ -3466,7 +3980,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RoadDef">
+        <xs:element name="RoadDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="priority" type="xs:int" />
@@ -3505,7 +4019,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RoadPathingDef">
+        <xs:element name="RoadPathingDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -3522,7 +4036,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RoadWorldLayerDef">
+        <xs:element name="RoadWorldLayerDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="order" type="xs:int" />
@@ -3541,7 +4055,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RuleDef">
+        <xs:element name="RuleDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="symbol" type="xs:string" />
@@ -3566,7 +4080,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ScenPartDef">
+        <xs:element name="ScenPartDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="category" type="scenPartCategory" />
@@ -3577,7 +4091,23 @@
               <xs:element minOccurs="0" name="pageClass" type="xs:string" />
               <xs:element minOccurs="0" name="gameCondition" type="xs:string" />
               <xs:element minOccurs="0" name="gameConditionTargetsWorld" type="xs:boolean" />
-              <xs:element minOccurs="0" name="durationRandomRange" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="durationRandomRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="durationRandomRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="designatorType" type="xs:string" />
               <xs:element minOccurs="0" name="defName" type="xs:string" />
               <xs:element minOccurs="0" name="label" type="xs:string" />
@@ -3593,7 +4123,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ScenarioDef">
+        <xs:element name="ScenarioDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -3610,7 +4140,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SiteCoreDef">
+        <xs:element name="SiteCoreDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="transportPodsCanLandAndGenerateMap" type="xs:boolean" />
@@ -3650,7 +4180,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SitePartDef">
+        <xs:element name="SitePartDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="alwaysHidden" type="xs:boolean" />
@@ -3689,7 +4219,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SkillDef">
+        <xs:element name="SkillDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="skillLabel" type="xs:string" />
@@ -3711,7 +4241,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="StatCategoryDef">
+        <xs:element name="StatCategoryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="displayOrder" type="xs:int" />
@@ -3730,7 +4260,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="StatDef">
+        <xs:element name="StatDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="category" type="xs:string" />
@@ -3817,7 +4347,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="StoryEventDef">
+        <xs:element name="StoryEventDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="importance" type="xs:float" />
@@ -3835,7 +4365,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="StorytellerDef">
+        <xs:element name="StorytellerDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="listOrder" type="xs:int" />
@@ -3876,7 +4406,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="StuffCategoryDef">
+        <xs:element name="StuffCategoryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -3893,7 +4423,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TaleDef">
+        <xs:element name="TaleDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="type" type="taleType" />
@@ -3924,7 +4454,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ThingSetMakerDef">
+        <xs:element name="ThingSetMakerDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="root" type="thingSetMaker" />
@@ -3943,7 +4473,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ThoughtDef">
+        <xs:element name="ThoughtDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="thoughtClass" type="xs:string" />
@@ -4007,7 +4537,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TimeAssignmentDef">
+        <xs:element name="TimeAssignmentDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="color" type="color" />
@@ -4027,7 +4557,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TraderKindDef">
+        <xs:element name="TraderKindDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="stockGenerators">
@@ -4055,7 +4585,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TrainableDef">
+        <xs:element name="TrainableDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="difficulty" type="xs:float" />
@@ -4093,7 +4623,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TraitDef">
+        <xs:element name="TraitDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="degreeDatas">
@@ -4141,7 +4671,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TransferableSorterDef">
+        <xs:element name="TransferableSorterDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="comparerClass" type="xs:string" />
@@ -4159,7 +4689,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ConceptDef">
+        <xs:element name="ConceptDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="priority" type="xs:float" />
@@ -4188,7 +4718,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="InstructionDef">
+        <xs:element name="InstructionDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="instructionClass" type="xs:string" />
@@ -4243,7 +4773,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="WorldObjectDef">
+        <xs:element name="WorldObjectDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="worldObjectClass" type="xs:string" />
@@ -4297,89 +4827,25 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TaleData_Def">
+        <xs:element name="Def">
           <xs:complexType>
             <xs:sequence>
-              <xs:element minOccurs="0" name="def" type="def" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="Tale_DoublePawnAndDef">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="0" name="def" type="xs:string" />
-              <xs:element minOccurs="0" name="id" type="xs:int" />
-              <xs:element minOccurs="0" name="date" type="xs:int" />
-              <xs:element minOccurs="0" name="customLabel" type="xs:string" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="Tale_SinglePawnAndDef">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="0" name="def" type="xs:string" />
-              <xs:element minOccurs="0" name="id" type="xs:int" />
-              <xs:element minOccurs="0" name="date" type="xs:int" />
-              <xs:element minOccurs="0" name="customLabel" type="xs:string" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="StockGenerator_BuySingleDef">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="0" name="thingDef" type="xs:string" />
-              <xs:element minOccurs="0" name="countRange" type="intRange" />
-              <xs:element minOccurs="0" name="customCountRanges">
+              <xs:element minOccurs="0" name="defName" type="xs:string" />
+              <xs:element minOccurs="0" name="label" type="xs:string" />
+              <xs:element minOccurs="0" name="description" type="xs:string" />
+              <xs:element minOccurs="0" name="ignoreConfigErrors" type="xs:boolean" />
+              <xs:element minOccurs="0" name="modExtensions">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountRangeClass" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="defModExtension" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element minOccurs="0" name="totalPriceRange" type="floatRange" />
-              <xs:element minOccurs="0" name="maxTechLevelGenerate" type="techLevel" />
-              <xs:element minOccurs="0" name="maxTechLevelBuy" type="techLevel" />
-              <xs:element minOccurs="0" name="price" type="priceType" />
+              <xs:element minOccurs="0" name="DefaultDefName" type="xs:string" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="StockGenerator_SingleDef">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="0" name="countRange" type="intRange" />
-              <xs:element minOccurs="0" name="customCountRanges">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountRangeClass" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element minOccurs="0" name="totalPriceRange" type="floatRange" />
-              <xs:element minOccurs="0" name="maxTechLevelGenerate" type="techLevel" />
-              <xs:element minOccurs="0" name="maxTechLevelBuy" type="techLevel" />
-              <xs:element minOccurs="0" name="price" type="priceType" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="StockGenerator_MultiDef">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="0" name="countRange" type="intRange" />
-              <xs:element minOccurs="0" name="customCountRanges">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountRangeClass" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element minOccurs="0" name="totalPriceRange" type="floatRange" />
-              <xs:element minOccurs="0" name="maxTechLevelGenerate" type="techLevel" />
-              <xs:element minOccurs="0" name="maxTechLevelBuy" type="techLevel" />
-              <xs:element minOccurs="0" name="price" type="priceType" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="ApparelLayerDef">
+        <xs:element name="ApparelLayerDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="drawOrder" type="xs:int" />
@@ -4397,7 +4863,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="BodyDef">
+        <xs:element name="BodyDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="corePart" type="bodyPartRecord" />
@@ -4415,7 +4881,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="BodyPartDef">
+        <xs:element name="BodyPartDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="labelShort" type="xs:string" />
@@ -4467,7 +4933,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="BodyPartGroupDef">
+        <xs:element name="BodyPartGroupDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="labelShort" type="xs:string" />
@@ -4486,7 +4952,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="BodyPartTagDef">
+        <xs:element name="BodyPartTagDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="vital" type="xs:boolean" />
@@ -4504,7 +4970,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ClamorDef">
+        <xs:element name="ClamorDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -4521,7 +4987,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="DamageArmorCategoryDef">
+        <xs:element name="DamageArmorCategoryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="multStat" type="xs:string" />
@@ -4540,7 +5006,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="DamageDef">
+        <xs:element name="DamageDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -4569,7 +5035,23 @@
               </xs:element>
               <xs:element minOccurs="0" name="armorCategory" type="xs:string" />
               <xs:element minOccurs="0" name="minDamageToFragment" type="xs:int" />
-              <xs:element minOccurs="0" name="overkillPctToDestroyPart" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="overkillPctToDestroyPart">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="overkillPctToDestroyPart">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="harmAllLayersUntilOutside" type="xs:boolean" />
               <xs:element minOccurs="0" name="hediff" type="xs:string" />
               <xs:element minOccurs="0" name="hediffSkin" type="xs:string" />
@@ -4588,8 +5070,40 @@
               <xs:element minOccurs="0" name="cutExtraTargetsCurve" type="simpleCurve" />
               <xs:element minOccurs="0" name="cutCleaveBonus" type="xs:float" />
               <xs:element minOccurs="0" name="bluntInnerHitChance" type="xs:float" />
-              <xs:element minOccurs="0" name="bluntInnerHitDamageFractionToConvert" type="floatRange" />
-              <xs:element minOccurs="0" name="bluntInnerHitDamageFractionToAdd" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="bluntInnerHitDamageFractionToConvert">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="bluntInnerHitDamageFractionToConvert">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+              <xs:choice>
+                <xs:element minOccurs="0" name="bluntInnerHitDamageFractionToAdd">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="bluntInnerHitDamageFractionToAdd">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="bluntStunDuration" type="xs:float" />
               <xs:element minOccurs="0" name="bluntStunChancePerDamagePctOfCorePartToHeadCurve" type="simpleCurve" />
               <xs:element minOccurs="0" name="bluntStunChancePerDamagePctOfCorePartToBodyCurve" type="simpleCurve" />
@@ -4609,7 +5123,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="StuffAppearanceDef">
+        <xs:element name="StuffAppearanceDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="pathPrefix" type="xs:string" />
@@ -4627,7 +5141,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="DesignationCategoryDef">
+        <xs:element name="DesignationCategoryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="specialDesignatorClasses">
@@ -4653,7 +5167,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="DesignationDef">
+        <xs:element name="DesignationDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="texturePath" type="xs:string" />
@@ -4674,7 +5188,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="DesignatorDropdownGroupDef">
+        <xs:element name="DesignatorDropdownGroupDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -4691,7 +5205,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="DutyDef">
+        <xs:element name="DutyDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="thinkNode" type="thinkNode" />
@@ -4714,18 +5228,34 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="EffecterDef">
+        <xs:element name="EffecterDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="children">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="subEffecterDef" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element minOccurs="0" name="positionRadius" type="xs:float" />
-              <xs:element minOccurs="0" name="offsetTowardsTarget" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="offsetTowardsTarget">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="offsetTowardsTarget">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
               <xs:element minOccurs="0" name="label" type="xs:string" />
               <xs:element minOccurs="0" name="description" type="xs:string" />
@@ -4740,31 +5270,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SubEffecterDef">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="0" name="subEffecterClass" type="xs:string" />
-              <xs:element minOccurs="0" name="burstCount" type="intRange" />
-              <xs:element minOccurs="0" name="ticksBetweenMotes" type="xs:int" />
-              <xs:element minOccurs="0" name="chancePerTick" type="xs:float" />
-              <xs:element minOccurs="0" name="spawnLocType" type="moteSpawnLocType" />
-              <xs:element minOccurs="0" name="positionLerpFactor" type="xs:float" />
-              <xs:element minOccurs="0" name="positionRadius" type="xs:float" />
-              <xs:element minOccurs="0" name="moteDef" type="xs:string" />
-              <xs:element minOccurs="0" name="angle" type="floatRange" />
-              <xs:element minOccurs="0" name="absoluteAngle" type="xs:boolean" />
-              <xs:element minOccurs="0" name="speed" type="floatRange" />
-              <xs:element minOccurs="0" name="rotation" type="floatRange" />
-              <xs:element minOccurs="0" name="rotationRate" type="floatRange" />
-              <xs:element minOccurs="0" name="scale" type="floatRange" />
-              <xs:element minOccurs="0" name="airTime" type="floatRange" />
-              <xs:element minOccurs="0" name="soundDef" type="xs:string" />
-              <xs:element minOccurs="0" name="intermittentSoundInterval" type="intRange" />
-              <xs:element minOccurs="0" name="ticksBeforeSustainerStart" type="xs:int" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="GameConditionDef">
+        <xs:element name="GameConditionDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="conditionClass" type="xs:string" />
@@ -4786,7 +5292,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="GenStepDef">
+        <xs:element name="GenStepDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="linkWithSite" type="siteCoreOrPartDefBase" />
@@ -4806,7 +5312,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="HediffDef">
+        <xs:element name="HediffDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="hediffClass" type="xs:string" />
@@ -4867,7 +5373,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ImpactSoundTypeDef">
+        <xs:element name="ImpactSoundTypeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="playOnlyIfHitPawn" type="xs:boolean" />
@@ -4885,7 +5391,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ImplementOwnerTypeDef">
+        <xs:element name="ImplementOwnerTypeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="implementOwnerRuleName" type="xs:string" />
@@ -4904,7 +5410,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="JobDef">
+        <xs:element name="JobDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="driverClass" type="xs:string" />
@@ -4942,7 +5448,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="KeyBindingCategoryDef">
+        <xs:element name="KeyBindingCategoryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="isGameUniversal" type="xs:boolean" />
@@ -4968,7 +5474,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="KeyBindingDef">
+        <xs:element name="KeyBindingDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="category" type="xs:string" />
@@ -4996,7 +5502,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="LetterDef">
+        <xs:element name="LetterDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="letterClass" type="xs:string" />
@@ -5022,7 +5528,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="LogEntryDef">
+        <xs:element name="LogEntryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="iconMiss" type="xs:string" />
@@ -5042,7 +5548,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ManeuverDef">
+        <xs:element name="ManeuverDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="requiredCapacity" type="xs:string" />
@@ -5066,7 +5572,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="MapGeneratorDef">
+        <xs:element name="MapGeneratorDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="genSteps">
@@ -5090,7 +5596,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="MentalBreakDef">
+        <xs:element name="MentalBreakDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -5113,7 +5619,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="MentalStateDef">
+        <xs:element name="MentalStateDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="stateClass" type="xs:string" />
@@ -5161,7 +5667,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="MessageTypeDef">
+        <xs:element name="MessageTypeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="sound" type="xs:string" />
@@ -5179,7 +5685,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PawnCapacityDef">
+        <xs:element name="PawnCapacityDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="listOrder" type="xs:int" />
@@ -5209,7 +5715,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="PawnKindDef">
+        <xs:element name="PawnKindDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="race" type="xs:string" />
@@ -5240,11 +5746,59 @@
               <xs:element minOccurs="0" name="canBeSapper" type="xs:boolean" />
               <xs:element minOccurs="0" name="baseRecruitDifficulty" type="xs:float" />
               <xs:element minOccurs="0" name="aiAvoidCover" type="xs:boolean" />
-              <xs:element minOccurs="0" name="fleeHealthThresholdRange" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="fleeHealthThresholdRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="fleeHealthThresholdRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="itemQuality" type="qualityCategory" />
               <xs:element minOccurs="0" name="forceNormalGearQuality" type="xs:boolean" />
-              <xs:element minOccurs="0" name="gearHealthRange" type="floatRange" />
-              <xs:element minOccurs="0" name="weaponMoney" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="gearHealthRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="gearHealthRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+              <xs:choice>
+                <xs:element minOccurs="0" name="weaponMoney">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="weaponMoney">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="weaponTags">
                 <xs:complexType>
                   <xs:sequence>
@@ -5252,7 +5806,23 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element minOccurs="0" name="apparelMoney" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="apparelMoney">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="apparelMoney">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="apparelRequired">
                 <xs:complexType>
                   <xs:sequence>
@@ -5270,7 +5840,23 @@
               <xs:element minOccurs="0" name="apparelAllowHeadgearChance" type="xs:float" />
               <xs:element minOccurs="0" name="apparelIgnoreSeasons" type="xs:boolean" />
               <xs:element minOccurs="0" name="apparelColor" type="color" />
-              <xs:element minOccurs="0" name="techHediffsMoney" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="techHediffsMoney">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="techHediffsMoney">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="techHediffsTags">
                 <xs:complexType>
                   <xs:sequence>
@@ -5282,7 +5868,7 @@
               <xs:element minOccurs="0" name="fixedInventory">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountClass" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -5291,13 +5877,45 @@
               <xs:element minOccurs="0" name="invFoodDef" type="xs:string" />
               <xs:element minOccurs="0" name="chemicalAddictionChance" type="xs:float" />
               <xs:element minOccurs="0" name="combatEnhancingDrugsChance" type="xs:float" />
-              <xs:element minOccurs="0" name="combatEnhancingDrugsCount" type="intRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="combatEnhancingDrugsCount">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+~[0-9]+" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="combatEnhancingDrugsCount">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:int" />
+                      <xs:element name="max" type="xs:int" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="trader" type="xs:boolean" />
               <xs:element minOccurs="0" name="labelMale" type="xs:string" />
               <xs:element minOccurs="0" name="labelMalePlural" type="xs:string" />
               <xs:element minOccurs="0" name="labelFemale" type="xs:string" />
               <xs:element minOccurs="0" name="labelFemalePlural" type="xs:string" />
-              <xs:element minOccurs="0" name="wildGroupSize" type="intRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="wildGroupSize">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+~[0-9]+" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="wildGroupSize">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:int" />
+                      <xs:element name="max" type="xs:int" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="ecoSystemWeight" type="xs:float" />
               <xs:element minOccurs="0" name="defName" type="xs:string" />
               <xs:element minOccurs="0" name="label" type="xs:string" />
@@ -5313,7 +5931,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RecipeDef">
+        <xs:element name="RecipeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -5344,7 +5962,7 @@
               <xs:element minOccurs="0" name="products">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountClass" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -5416,7 +6034,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ResearchProjectDef">
+        <xs:element name="ResearchProjectDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="baseCost" type="xs:float" />
@@ -5472,7 +6090,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ResearchProjectTagDef">
+        <xs:element name="ResearchProjectTagDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -5489,7 +6107,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ReservationLayerDef">
+        <xs:element name="ReservationLayerDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -5506,7 +6124,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RoofDef">
+        <xs:element name="RoofDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="isNatural" type="xs:boolean" />
@@ -5528,7 +6146,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RoomRoleDef">
+        <xs:element name="RoomRoleDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -5546,7 +6164,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RoomStatDef">
+        <xs:element name="RoomStatDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workerClass" type="xs:string" />
@@ -5577,7 +6195,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="RulePackDef">
+        <xs:element name="RulePackDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="include">
@@ -5601,7 +6219,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ScatterableDef">
+        <xs:element name="ScatterableDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="texturePath" type="xs:string" />
@@ -5624,7 +6242,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ShaderTypeDef">
+        <xs:element name="ShaderTypeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="shaderPath" type="xs:string" />
@@ -5642,7 +6260,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SongDef">
+        <xs:element name="SongDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="clipPath" type="xs:string" />
@@ -5672,7 +6290,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SoundDef">
+        <xs:element name="SoundDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="sustain" type="xs:boolean" />
@@ -5694,7 +6312,7 @@
               <xs:element minOccurs="0" name="subSounds">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="subSoundDef" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -5712,49 +6330,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SubSoundDef">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element minOccurs="0" name="name" type="xs:string" />
-              <xs:element minOccurs="0" name="onCamera" type="xs:boolean" />
-              <xs:element minOccurs="0" name="muteWhenPaused" type="xs:boolean" />
-              <xs:element minOccurs="0" name="tempoAffectedByGameSpeed" type="xs:boolean" />
-              <xs:element minOccurs="0" name="grains">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="audioGrain" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element minOccurs="0" name="volumeRange" type="floatRange" />
-              <xs:element minOccurs="0" name="pitchRange" type="floatRange" />
-              <xs:element minOccurs="0" name="distRange" type="floatRange" />
-              <xs:element minOccurs="0" name="repeatMode" type="repeatSelectMode" />
-              <xs:element minOccurs="0" name="paramMappings">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="soundParameterMapping" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element minOccurs="0" name="filters">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="soundFilter" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element minOccurs="0" name="startDelayRange" type="floatRange" />
-              <xs:element minOccurs="0" name="sustainLoop" type="xs:boolean" />
-              <xs:element minOccurs="0" name="sustainLoopDurationRange" type="floatRange" />
-              <xs:element minOccurs="0" name="sustainIntervalRange" type="floatRange" />
-              <xs:element minOccurs="0" name="sustainAttack" type="xs:float" />
-              <xs:element minOccurs="0" name="sustainSkipFirstAttack" type="xs:boolean" />
-              <xs:element minOccurs="0" name="sustainRelease" type="xs:float" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="SubcameraDef">
+        <xs:element name="SubcameraDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="layer" type="xs:string" />
@@ -5774,7 +6350,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TerrainAffordanceDef">
+        <xs:element name="TerrainAffordanceDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="order" type="xs:int" />
@@ -5792,7 +6368,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TerrainDef">
+        <xs:element name="TerrainDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="texturePath" type="xs:string" />
@@ -5864,7 +6440,7 @@
               <xs:element minOccurs="0" name="costList">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountClass" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -5931,7 +6507,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ThingCategoryDef">
+        <xs:element name="ThingCategoryDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="parent" type="xs:string" />
@@ -5951,7 +6527,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ThingDef">
+        <xs:element name="ThingDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="thingClass" type="xs:string" />
@@ -5974,21 +6550,21 @@
               <xs:element minOccurs="0" name="killedLeavings">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountClass" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element minOccurs="0" name="butcherProducts">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountClass" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element minOccurs="0" name="smeltProducts">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountClass" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -6019,10 +6595,42 @@
               <xs:element minOccurs="0" name="deepCommonality" type="xs:float" />
               <xs:element minOccurs="0" name="deepCountPerCell" type="xs:int" />
               <xs:element minOccurs="0" name="deepCountPerPortion" type="xs:int" />
-              <xs:element minOccurs="0" name="deepLumpSizeRange" type="intRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="deepLumpSizeRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+~[0-9]+" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="deepLumpSizeRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:int" />
+                      <xs:element name="max" type="xs:int" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="generateCommonality" type="xs:float" />
               <xs:element minOccurs="0" name="generateAllowChance" type="xs:float" />
-              <xs:element minOccurs="0" name="startingHpRange" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="startingHpRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="startingHpRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="thingSetMakerTags">
                 <xs:complexType>
                   <xs:sequence>
@@ -6161,7 +6769,7 @@
               <xs:element minOccurs="0" name="costList">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element minOccurs="0" maxOccurs="unbounded" name="li" type="thingDefCountClass" />
+                    <xs:any minOccurs="0" maxOccurs="unbounded" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -6228,7 +6836,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ThinkTreeDef">
+        <xs:element name="ThinkTreeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="thinkRoot" type="thinkNode" />
@@ -6248,7 +6856,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="ToolCapacityDef">
+        <xs:element name="ToolCapacityDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -6265,7 +6873,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="TrainabilityDef">
+        <xs:element name="TrainabilityDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="intelligenceOrder" type="xs:int" />
@@ -6283,13 +6891,45 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="WeatherDef">
+        <xs:element name="WeatherDef">
           <xs:complexType>
             <xs:sequence>
-              <xs:element minOccurs="0" name="durationRange" type="intRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="durationRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+~[0-9]+" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="durationRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:int" />
+                      <xs:element name="max" type="xs:int" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="repeatable" type="xs:boolean" />
               <xs:element minOccurs="0" name="favorability" type="favorability" />
-              <xs:element minOccurs="0" name="temperatureRange" type="floatRange" />
+              <xs:choice>
+                <xs:element minOccurs="0" name="temperatureRange">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:pattern value="[0-9]+(.[0-9]+)~[0-9]+(.[0-9]+)" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="0" name="temperatureRange">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="min" type="xs:float" />
+                      <xs:element name="max" type="xs:float" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
               <xs:element minOccurs="0" name="commonalityRainfallFactor" type="simpleCurve" />
               <xs:element minOccurs="0" name="rainRate" type="xs:float" />
               <xs:element minOccurs="0" name="snowRate" type="xs:float" />
@@ -6337,7 +6977,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="WorkGiverDef">
+        <xs:element name="WorkGiverDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="giverClass" type="xs:string" />
@@ -6395,7 +7035,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="WorkGiverEquivalenceGroupDef">
+        <xs:element name="WorkGiverEquivalenceGroupDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="defName" type="xs:string" />
@@ -6412,7 +7052,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="WorkTypeDef">
+        <xs:element name="WorkTypeDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="workTags" type="workTags" />
@@ -6445,7 +7085,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="WorldGenStepDef">
+        <xs:element name="WorldGenStepDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="order" type="xs:float" />
@@ -6464,7 +7104,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element minOccurs="0" name="SpecialThingFilterDef">
+        <xs:element name="SpecialThingFilterDef">
           <xs:complexType>
             <xs:sequence>
               <xs:element minOccurs="0" name="parentCategory" type="xs:string" />
@@ -6486,7 +7126,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-      </xs:sequence>
+      </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>
