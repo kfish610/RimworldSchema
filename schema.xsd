@@ -2,7 +2,7 @@
 <xs:schema xmlns="https://github.com/kfish610/RimWorldSchema" elementFormDefault="qualified" targetNamespace="https://github.com/kfish610/RimWorldSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="worldGenStep">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="def" type="xs:string" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
@@ -578,7 +578,7 @@
   </xs:complexType>
   <xs:complexType name="ingestionOutcomeDoer">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="chance" type="xs:float" />
       <xs:element name="doToGeneratedPawnIfAddicted" type="xs:boolean" />
     </xs:choice>
@@ -615,7 +615,7 @@
   </xs:simpleType>
   <xs:complexType name="colorGenerator">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
@@ -678,7 +678,7 @@
   </xs:complexType>
   <xs:complexType name="compProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="compClass" type="xs:string" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
@@ -880,7 +880,7 @@
   </xs:simpleType>
   <xs:complexType name="audioGrain">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
@@ -1355,7 +1355,7 @@
   </xs:complexType>
   <xs:complexType name="genStep">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="def" type="xs:string" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
@@ -1449,7 +1449,7 @@
   </xs:simpleType>
   <xs:complexType name="thinkNode">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="subNodes">
         <xs:complexType>
           <xs:sequence>
@@ -1595,7 +1595,7 @@
   </xs:complexType>
   <xs:complexType name="stockGenerator">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="customCountRanges">
         <xs:complexType>
           <xs:sequence>
@@ -1731,7 +1731,7 @@
   </xs:complexType>
   <xs:complexType name="statPart">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="priority" type="xs:float" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
@@ -1756,7 +1756,7 @@
   </xs:complexType>
   <xs:complexType name="skillNeed">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="skill" type="xs:string" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
@@ -1823,7 +1823,7 @@
   </xs:simpleType>
   <xs:complexType name="symbolResolver">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="minRectSize" type="intVec2" />
       <xs:element name="selectionWeight" type="xs:float" />
     </xs:choice>
@@ -2246,7 +2246,7 @@
   </xs:simpleType>
   <xs:complexType name="hediffGiver">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
       <xs:element name="hediff" type="xs:string" />
       <xs:element name="partsToAffect">
         <xs:complexType>
@@ -2403,7 +2403,7 @@
   </xs:complexType>
   <xs:complexType name="defModExtension">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:any minOccurs="0" maxOccurs="unbounded" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
     </xs:choice>
     <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>

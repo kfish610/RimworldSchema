@@ -234,7 +234,8 @@ namespace RimworldSchema
                 choice.Items.Add(new XmlSchemaAny()
                 {
                     MinOccurs = 0,
-                    MaxOccursString = "unbounded"
+                    MaxOccursString = "unbounded",
+                    ProcessContents = XmlSchemaContentProcessing.Lax
                 });
             }
             if (typeof(Def).IsAssignableFrom(type))
