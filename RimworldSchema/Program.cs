@@ -216,7 +216,7 @@ namespace RimworldSchema
             };
             foreach (var field in fields)
             {
-                if (field.FieldType.GetInterfaces().Contains(typeof(IExposable)))
+                if (field.FieldType.GetInterfaces().Contains(typeof(IExposable)) || field.IsLiteral)
                     continue;
                 object attr = Attribute.GetCustomAttribute(field, typeof(UnsavedAttribute));
                 if (attr != null)

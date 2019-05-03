@@ -191,7 +191,6 @@
       <xs:element name="topWindExposure" type="xs:float" />
       <xs:element name="maxMeshCount" type="xs:int" />
       <xs:element name="dropLeaves" type="xs:boolean" />
-      <xs:element name="MaxMaxMeshCount" type="xs:int" />
     </xs:choice>
   </xs:complexType>
   <xs:simpleType name="plantPurpose">
@@ -1120,7 +1119,6 @@
       <xs:element name="colonyWideTaleDef" type="xs:string" />
       <xs:element name="bodypartTagTarget" type="xs:string" />
       <xs:element name="rangedFireRulepack" type="xs:string" />
-      <xs:element name="DefaultArmorPenetrationPerDamage" type="xs:float" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="surpriseAttackProps">
@@ -1392,7 +1390,6 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="leaveJoinableLordIfIssuesJob" type="xs:boolean" />
-      <xs:element name="InvalidSaveKey" type="xs:int" />
     </xs:choice>
   </xs:complexType>
   <xs:simpleType name="targetType">
@@ -3164,7 +3161,6 @@
               <xs:element name="defaultHotKey" type="keyCode" />
               <xs:element name="canBeTutorDenied" type="xs:boolean" />
               <xs:element name="validWithoutMap" type="xs:boolean" />
-              <xs:element name="ButtonHeight" type="xs:int" />
               <xs:element name="defName" type="xs:string" />
               <xs:element name="label" type="xs:string" />
               <xs:element name="description" type="xs:string" />
@@ -4314,7 +4310,6 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="DefaultDefName" type="xs:string" />
             </xs:choice>
           </xs:complexType>
         </xs:element>
@@ -5361,7 +5356,6 @@
               <xs:element name="discoveredLetterText" type="xs:string" />
               <xs:element name="discoveredLetterMinDifficulty" type="xs:int" />
               <xs:element name="unlockExtremeDifficulty" type="xs:boolean" />
-              <xs:element name="MaxEffectiveTechLevel" type="techLevel" />
               <xs:element name="defName" type="xs:string" />
               <xs:element name="label" type="xs:string" />
               <xs:element name="description" type="xs:string" />
@@ -6005,8 +5999,6 @@
               <xs:element name="projectile" type="projectileProperties" />
               <xs:element name="stuffProps" type="stuffProperties" />
               <xs:element name="skyfaller" type="skyfallerProperties" />
-              <xs:element name="SmallUnitPerVolume" type="xs:int" />
-              <xs:element name="SmallVolumePerUnit" type="xs:float" />
               <xs:element name="statBases">
                 <xs:complexType>
                   <xs:sequence>
