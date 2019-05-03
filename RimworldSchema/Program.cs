@@ -89,8 +89,7 @@ namespace RimworldSchema
             {
                 MinOccurs = 0,
                 MaxOccursString = "unbounded",
-                ProcessContents = XmlSchemaContentProcessing.Skip,
-                Namespace = "##other"
+                ProcessContents = XmlSchemaContentProcessing.Skip
             });
 
             foreach (var type in types)

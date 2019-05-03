@@ -6336,7 +6336,7 @@
             </xs:choice>
           </xs:complexType>
         </xs:element>
-        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other" processContents="skip" />
+        <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
       </xs:choice>
     </xs:complexType>
   </xs:element>
