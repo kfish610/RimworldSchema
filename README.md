@@ -7,7 +7,7 @@ Change your root `<Defs>` tag to:
 ```xml
 <Defs xmlns="https://github.com/kfish610/RimWorldSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="https://github.com/kfish610/RimWorldSchema https://raw.githubusercontent.com/kfish610/RimworldSchema/master/schema.xsd">
+    xsi:schemaLocation="https://github.com/kfish610/RimWorldSchema https://github.com/kfish610/RimworldSchema/blob/master/schema.xsd?raw=true">
     ...
 </Defs>
 ```
