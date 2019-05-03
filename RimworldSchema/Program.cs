@@ -1,4 +1,6 @@
 ﻿using Microsoft.CSharp;
+using RimWorld;
+using RimWorld.BaseGen;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -11,6 +13,8 @@ using System.Xml;
 using System.Xml.Schema;
 using UnityEngine;
 using Verse;
+using Verse.AI;
+using Verse.Sound;
 
 namespace RimworldSchema
 {
@@ -215,52 +219,6 @@ namespace RimworldSchema
                     Content = restriction
                 };
             }
-            if (type == typeof(CompProperties))
-            {
-                var seq = new XmlSchemaSequence();
-                seq.Items.Add(new XmlSchemaElement()
-                {
-                    Name = "compClass",
-                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema"),
-                    MinOccurs = 0
-                });
-                seq.Items.Add(new XmlSchemaAny()
-                {
-                    MinOccurs = 0,
-                    MaxOccursString = "unbounded",
-                    ProcessContents = XmlSchemaContentProcessing.Lax
-                });
-                var t = new XmlSchemaComplexType()
-                {
-                    Particle = seq
-                };
-                t.Attributes.Add(new XmlSchemaAttribute()
-                {
-                    Name = "Class",
-                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
-                });
-                return t;
-            }
-            if (type == typeof(DefModExtension))
-            {
-                var seq = new XmlSchemaSequence();
-                seq.Items.Add(new XmlSchemaAny()
-                {
-                    MinOccurs = 0,
-                    MaxOccursString = "unbounded",
-                    ProcessContents = XmlSchemaContentProcessing.Lax
-                });
-                var t = new XmlSchemaComplexType()
-                {
-                    Particle = seq
-                };
-                t.Attributes.Add(new XmlSchemaAttribute()
-                {
-                    Name = "Class",
-                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
-                });
-                return t;
-            }
             var fields = type.GetFields();
             var choice = new XmlSchemaChoice()
             {
@@ -271,6 +229,14 @@ namespace RimworldSchema
             {
                 Particle = choice
             };
+            if (type == typeof(DefModExtension) || type == typeof(CompProperties) || type == typeof(IngestionOutcomeDoer) || type == typeof(HediffGiver) || type == typeof(ThinkNode) || type == typeof(GenStep) || type == typeof(ScattererValidator) || type == typeof(SymbolResolver) || type == typeof(ScenPart) || type == typeof(AudioGrain) || type == typeof(StatPart) || type == typeof(SkillNeed) || type == typeof(ColorGenerator) || type == typeof(StockGenerator) || type == typeof(WorldGenStep))
+            {
+                choice.Items.Add(new XmlSchemaAny()
+                {
+                    MinOccurs = 0,
+                    MaxOccursString = "unbounded"
+                });
+            }
             if (typeof(Def).IsAssignableFrom(type))
             {
                 derivedT.Attributes.Add(new XmlSchemaAttribute()
@@ -291,7 +257,7 @@ namespace RimworldSchema
             });
             foreach (var field in fields)
             {
-                if (field.FieldType.GetInterfaces().Contains(typeof(IExposable)) || field.IsLiteral)
+                if (field.FieldType.GetInterfaces().Contains(typeof(IExposable)) || field.IsLiteral || field.IsStatic)
                     continue;
                 object attr = Attribute.GetCustomAttribute(field, typeof(UnsavedAttribute));
                 if (attr != null)
