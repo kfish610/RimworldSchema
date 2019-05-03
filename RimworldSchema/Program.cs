@@ -85,6 +85,14 @@ namespace RimworldSchema
                 });
             }
 
+            defsChoice.Items.Add(new XmlSchemaAny()
+            {
+                MinOccurs = 0,
+                MaxOccursString = "unbounded",
+                ProcessContents = XmlSchemaContentProcessing.Skip,
+                Namespace = "##other"
+            });
+
             foreach (var type in types)
             {
                 schema.Items.Insert(0, type);
