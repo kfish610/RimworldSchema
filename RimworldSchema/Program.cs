@@ -215,12 +215,80 @@ namespace RimworldSchema
                     Content = restriction
                 };
             }
+            if (type == typeof(CompProperties))
+            {
+                var seq = new XmlSchemaSequence();
+                seq.Items.Add(new XmlSchemaElement()
+                {
+                    Name = "compClass",
+                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema"),
+                    MinOccurs = 0
+                });
+                seq.Items.Add(new XmlSchemaAny()
+                {
+                    MinOccurs = 0,
+                    MaxOccursString = "unbounded",
+                    ProcessContents = XmlSchemaContentProcessing.Lax
+                });
+                var t = new XmlSchemaComplexType()
+                {
+                    Particle = seq
+                };
+                t.Attributes.Add(new XmlSchemaAttribute()
+                {
+                    Name = "Class",
+                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
+                });
+                return t;
+            }
+            if (type == typeof(DefModExtension))
+            {
+                var seq = new XmlSchemaSequence();
+                seq.Items.Add(new XmlSchemaAny()
+                {
+                    MinOccurs = 0,
+                    MaxOccursString = "unbounded",
+                    ProcessContents = XmlSchemaContentProcessing.Lax
+                });
+                var t = new XmlSchemaComplexType()
+                {
+                    Particle = seq
+                };
+                t.Attributes.Add(new XmlSchemaAttribute()
+                {
+                    Name = "Class",
+                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
+                });
+                return t;
+            }
             var fields = type.GetFields();
             var choice = new XmlSchemaChoice()
             {
                 MinOccurs = 1,
                 MaxOccursString = "unbounded"
             };
+            var derivedT = new XmlSchemaComplexType()
+            {
+                Particle = choice
+            };
+            if (typeof(Def).IsAssignableFrom(type))
+            {
+                derivedT.Attributes.Add(new XmlSchemaAttribute()
+                {
+                    Name = "Name",
+                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
+                });
+                derivedT.Attributes.Add(new XmlSchemaAttribute()
+                {
+                    Name = "ParentName",
+                    SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
+                });
+            }
+            derivedT.Attributes.Add(new XmlSchemaAttribute()
+            {
+                Name = "Class",
+                SchemaTypeName = new XmlQualifiedName("string", "http://www.w3.org/2001/XMLSchema")
+            });
             foreach (var field in fields)
             {
                 if (field.FieldType.GetInterfaces().Contains(typeof(IExposable)) || field.IsLiteral)
@@ -306,33 +374,6 @@ namespace RimworldSchema
                                 }
                             });
                         }
-                    }
-                    else if (field.FieldType.IsArray)
-                    {
-                        Type elemT = field.FieldType.GetElementType();
-                        if (!Aliases.ContainsKey(elemT) && !definedTypes.Any(x => x == elemT.Name.ToCamelCase()))
-                        {
-                            definedTypes.Add(elemT.Name.ToCamelCase());
-                            var t = Derive(elemT);
-                            t.Name = elemT.Name.ToCamelCase();
-                            types.Add(t);
-                        }
-                        var list = new XmlSchemaSequence();
-                        list.Items.Add(new XmlSchemaElement()
-                        {
-                            Name = "li",
-                            SchemaTypeName = Aliases.ContainsKey(elemT) ? new XmlQualifiedName(Aliases[elemT], "http://www.w3.org/2001/XMLSchema") : new XmlQualifiedName(elemT.Name.ToCamelCase(), "https://github.com/kfish610/RimWorldSchema"),
-                            MinOccurs = 0,
-                            MaxOccursString = "unbounded"
-                        });
-                        choice.Items.Add(new XmlSchemaElement()
-                        {
-                            Name = field.Name,
-                            SchemaType = new XmlSchemaComplexType()
-                            {
-                                Particle = list
-                            }
-                        });
                     }
                     else if (field.FieldType.IsGenericType && (field.FieldType.GetGenericTypeDefinition() == typeof(Dictionary<,>)))
                     {
@@ -506,10 +547,7 @@ namespace RimworldSchema
                     }
                 }
             }
-            return new XmlSchemaComplexType()
-            {
-                Particle = choice
-            };
+            return derivedT;
         }
     }
 }

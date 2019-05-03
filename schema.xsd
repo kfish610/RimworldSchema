@@ -4,6 +4,7 @@
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="def" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="jobTag">
     <xs:restriction base="xs:string">
@@ -32,12 +33,14 @@
       <xs:element name="overlay" type="color" />
       <xs:element name="saturation" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="weatherEventMaker">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="averageInterval" type="xs:float" />
       <xs:element name="eventClass" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="favorability">
     <xs:restriction base="xs:string">
@@ -67,6 +70,7 @@
       <xs:element name="anticipationSoundTicks" type="xs:int" />
       <xs:element name="motesPerCell" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="skyfallerMovementType">
     <xs:restriction base="xs:string">
@@ -109,6 +113,7 @@
       <xs:element name="soundMeleeHitSharp" type="xs:string" />
       <xs:element name="soundMeleeHitBlunt" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="projectileProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -135,6 +140,7 @@
       <xs:element name="explosionEffect" type="xs:string" />
       <xs:element name="ai_IsIncendiary" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="plantProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -192,6 +198,7 @@
       <xs:element name="maxMeshCount" type="xs:int" />
       <xs:element name="dropLeaves" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="plantPurpose">
     <xs:restriction base="xs:string">
@@ -206,6 +213,7 @@
       <xs:element name="biome" type="xs:string" />
       <xs:element name="commonality" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="moteProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -223,6 +231,7 @@
       <xs:element name="rotateTowardsTarget" type="xs:boolean" />
       <xs:element name="rotateTowardsMoveDirection" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="apparelProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -260,6 +269,7 @@
       <xs:element name="hatRenderedFrontOfFace" type="xs:boolean" />
       <xs:element name="useDeflectMetalEffect" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="raceProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -342,6 +352,7 @@
       <xs:element name="soundMeleeHitBuilding" type="xs:string" />
       <xs:element name="soundMeleeMiss" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="lifeStageAge">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -352,12 +363,14 @@
       <xs:element name="soundWounded" type="xs:string" />
       <xs:element name="soundDeath" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="animalBiomeRecord">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="biome" type="xs:string" />
       <xs:element name="commonality" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="pawnNameCategory">
     <xs:restriction base="xs:string">
@@ -448,6 +461,7 @@
       <xs:element name="joyKind" type="xs:string" />
       <xs:element name="haulToContainerDuration" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="gasProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -455,6 +469,7 @@
       <xs:element name="accuracyPenalty" type="xs:float" />
       <xs:element name="rotationSpeed" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="filthProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -465,6 +480,7 @@
       <xs:element name="allowsFire" type="xs:boolean" />
       <xs:element name="maxThickness" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="ingestibleProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -500,6 +516,7 @@
       <xs:element name="optimalityOffsetFeedingAnimals" type="xs:float" />
       <xs:element name="drugCategory" type="drugCategory" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="foodPreferability">
     <xs:restriction base="xs:string">
@@ -548,6 +565,7 @@
       <xs:element name="south" type="holdOffset" />
       <xs:element name="west" type="holdOffset" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="holdOffset">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -555,12 +573,14 @@
       <xs:element name="flip" type="xs:boolean" />
       <xs:element name="behind" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="ingestionOutcomeDoer">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="chance" type="xs:float" />
       <xs:element name="doToGeneratedPawnIfAddicted" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="equipmentType">
     <xs:restriction base="xs:string">
@@ -593,6 +613,7 @@
   </xs:simpleType>
   <xs:complexType name="colorGenerator">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="drawerType">
     <xs:restriction base="xs:string">
@@ -642,17 +663,21 @@
         </xs:complexType>
       </xs:element>
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="damageMultiplier">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="damageDef" type="xs:string" />
       <xs:element name="multiplier" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="compProperties">
-    <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:element name="compClass" type="xs:string" />
-    </xs:choice>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="compClass" type="xs:string" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+    </xs:sequence>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="tickerType">
     <xs:restriction base="xs:string">
@@ -741,6 +766,7 @@
       <xs:element name="linkedBodyPartsGroup" type="xs:string" />
       <xs:element name="ensureLinkedBodyPartsGroupAlwaysUsable" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="terrainEdgeType">
     <xs:restriction base="xs:string">
@@ -812,9 +838,11 @@
       <xs:element name="sustainSkipFirstAttack" type="xs:boolean" />
       <xs:element name="sustainRelease" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="soundFilter">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="soundParameterMapping">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -823,6 +851,7 @@
       <xs:element name="paramUpdateMode" type="soundParamUpdateMode" />
       <xs:element name="curve" type="simpleCurve" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="soundParamUpdateMode">
     <xs:restriction base="xs:string">
@@ -832,9 +861,11 @@
   </xs:simpleType>
   <xs:complexType name="soundParamTarget">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="soundParamSource">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="repeatSelectMode">
     <xs:restriction base="xs:string">
@@ -845,6 +876,7 @@
   </xs:simpleType>
   <xs:complexType name="audioGrain">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="voicePriorityMode">
     <xs:restriction base="xs:string">
@@ -879,12 +911,14 @@
   </xs:simpleType>
   <xs:complexType name="material">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="roomStatScoreStage">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="minScore" type="xs:float" />
       <xs:element name="label" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="specialProductType">
     <xs:restriction base="xs:string">
@@ -894,6 +928,7 @@
   </xs:simpleType>
   <xs:complexType name="ingredientCount">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="pawnInventoryOption">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -915,6 +950,7 @@
         </xs:complexType>
       </xs:element>
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="qualityCategory">
     <xs:restriction base="xs:string">
@@ -941,6 +977,7 @@
       <xs:element name="femaleDessicatedBodyGraphicData" type="graphicData" />
       <xs:element name="butcherBodyPart" type="bodyPartToDrop" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="bodyPartToDrop">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -949,6 +986,7 @@
       <xs:element name="allowMale" type="xs:boolean" />
       <xs:element name="allowFemale" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="graphicData">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -974,6 +1012,7 @@
       <xs:element name="linkType" type="linkDrawerType" />
       <xs:element name="linkFlags" type="linkFlags" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="linkFlags">
     <xs:restriction base="xs:string">
@@ -1028,15 +1067,18 @@
       <xs:element name="edgeTop" type="xs:string" />
       <xs:element name="edgeBot" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="rect">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="shadowData">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="volume" type="vector3" />
       <xs:element name="offset" type="vector3" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="vector3">
     <xs:restriction base="xs:string">
@@ -1045,6 +1087,7 @@
   </xs:simpleType>
   <xs:complexType name="shaderParameter">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="drugCategory">
     <xs:restriction base="xs:string">
@@ -1120,6 +1163,7 @@
       <xs:element name="bodypartTagTarget" type="xs:string" />
       <xs:element name="rangedFireRulepack" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="surpriseAttackProps">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1131,6 +1175,7 @@
         </xs:complexType>
       </xs:element>
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="extraMeleeDamage">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1138,6 +1183,7 @@
       <xs:element name="amount" type="xs:int" />
       <xs:element name="armorPenetration" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="targetingParameters">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1163,6 +1209,7 @@
       <xs:element name="mapObjectTargetsMustBeAutoAttackable" type="xs:boolean" />
       <xs:element name="onlyTargetIncapacitatedPawns" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="faction">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1175,6 +1222,7 @@
       <xs:element name="lastTraderRequestTick" type="xs:int" />
       <xs:element name="lastMilitaryAidRequestTick" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="verbCategory">
     <xs:restriction base="xs:string">
@@ -1186,6 +1234,7 @@
   </xs:simpleType>
   <xs:complexType name="rot4">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="checkJobOverrideOnDamageMode">
     <xs:restriction base="xs:string">
@@ -1201,6 +1250,7 @@
       <xs:element name="isGoodWeapon" type="xs:boolean" />
       <xs:element name="betterThanNatural" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="injuryProps">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1212,6 +1262,7 @@
       <xs:element name="destroyedOutLabel" type="xs:string" />
       <xs:element name="useRemovedLabel" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="hediffStage">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1272,12 +1323,14 @@
       <xs:element name="partIgnoreMissingHP" type="xs:boolean" />
       <xs:element name="destroyPart" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="mentalStateGiver">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="mentalState" type="xs:string" />
       <xs:element name="mtbDays" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="pawnCapacityModifier">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1286,16 +1339,19 @@
       <xs:element name="setMax" type="xs:float" />
       <xs:element name="postFactor" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="hediffCompProperties">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="compClass" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="genStep">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="def" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="siteCoreOrPartDefBase">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1332,6 +1388,9 @@
         </xs:complexType>
       </xs:element>
     </xs:choice>
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="ParentName" type="xs:string" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="psychicDroneLevel">
     <xs:restriction base="xs:string">
@@ -1356,6 +1415,7 @@
       <xs:element name="soundDef" type="xs:string" />
       <xs:element name="ticksBeforeSustainerStart" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="moteSpawnLocType">
     <xs:restriction base="xs:string">
@@ -1391,6 +1451,7 @@
       </xs:element>
       <xs:element name="leaveJoinableLordIfIssuesJob" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="targetType">
     <xs:restriction base="xs:string">
@@ -1404,6 +1465,7 @@
       <xs:element name="severityPerDamageDealt" type="xs:float" />
       <xs:element name="victimSeverityScaling" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="bodyPartRecord">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1428,6 +1490,7 @@
         </xs:complexType>
       </xs:element>
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="bodyPartDepth">
     <xs:restriction base="xs:string">
@@ -1448,6 +1511,7 @@
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="compClass" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="programState">
     <xs:restriction base="xs:string">
@@ -1519,6 +1583,7 @@
       <xs:element name="randomDiseaseMtbDays" type="xs:float" />
       <xs:element name="mentalStateGiverClass" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="stockGenerator">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1533,6 +1598,7 @@
       <xs:element name="maxTechLevelBuy" type="techLevel" />
       <xs:element name="price" type="priceType" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="priceType">
     <xs:restriction base="xs:string">
@@ -1553,11 +1619,13 @@
       <xs:element name="baseOpinionOffset" type="xs:float" />
       <xs:element name="visible" type="xs:boolean" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="thingSetMaker">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="fixedParams" type="thingSetMakerParams" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="thingSetMakerParams">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1586,9 +1654,11 @@
         </xs:complexType>
       </xs:element>
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="object">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="podContentsType">
     <xs:restriction base="xs:string">
@@ -1605,6 +1675,7 @@
       <xs:element name="min" type="xs:float" />
       <xs:element name="max" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="qualityGenerator">
     <xs:restriction base="xs:string">
@@ -1618,6 +1689,7 @@
       <xs:element name="min" type="xs:int" />
       <xs:element name="max" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="taleType">
     <xs:restriction base="xs:string">
@@ -1646,11 +1718,13 @@
       </xs:element>
       <xs:element name="minIncChancePopulationIntentFactor" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="statPart">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="priority" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="pawnCapacityFactor">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1660,6 +1734,7 @@
       <xs:element name="useReciprocal" type="xs:boolean" />
       <xs:element name="allowedDefect" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="pawnCapacityOffset">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1667,11 +1742,13 @@
       <xs:element name="scale" type="xs:float" />
       <xs:element name="max" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="skillNeed">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="skill" type="xs:string" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="toStringStyle">
     <xs:restriction base="xs:string">
@@ -1738,6 +1815,7 @@
       <xs:element name="minRectSize" type="intVec2" />
       <xs:element name="selectionWeight" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="intVec2">
     <xs:restriction base="xs:string">
@@ -1749,6 +1827,7 @@
       <xs:element name="layer" type="xs:string" />
       <xs:element name="width" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="roadDefGenStep">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1756,6 +1835,7 @@
       <xs:element name="antialiasingMultiplier" type="xs:float" />
       <xs:element name="periodicSpacing" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="branch">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -1763,6 +1843,7 @@
       <xs:element name="child" type="xs:string" />
       <xs:element name="chance" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="recordType">
     <xs:restriction base="xs:string">
@@ -2105,24 +2186,28 @@
   </xs:simpleType>
   <xs:complexType name="rulePack">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="statModifier">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="stat" type="xs:string" />
       <xs:element name="value" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="skillRequirement">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="skill" type="xs:string" />
       <xs:element name="minLevel" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="mTBByBiome">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="biome" type="xs:string" />
       <xs:element name="mtbDays" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="biomeDiseaseRecord">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -2130,6 +2215,7 @@
       <xs:element name="diseaseInc" type="xs:string" />
       <xs:element name="commonality" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="gender">
     <xs:restriction base="xs:string">
@@ -2159,6 +2245,7 @@
       <xs:element name="canAffectAnyLivePart" type="xs:boolean" />
       <xs:element name="countToAffect" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="hairGender">
     <xs:restriction base="xs:string">
@@ -2174,6 +2261,7 @@
       <xs:element name="texture" type="xs:string" />
       <xs:element name="color" type="color" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="techLevel">
     <xs:restriction base="xs:string">
@@ -2189,6 +2277,7 @@
   </xs:simpleType>
   <xs:complexType name="simpleCurve">
     <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="pawnGroupMaker">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -2231,12 +2320,14 @@
         </xs:complexType>
       </xs:element>
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="pawnGenOption">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="kind" type="xs:string" />
       <xs:element name="selectionWeight" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="color">
     <xs:restriction base="xs:string">
@@ -2256,6 +2347,7 @@
       <xs:element name="canAffectAnyLivePart" type="xs:boolean" />
       <xs:element name="countToAffect" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:simpleType name="vector2">
     <xs:restriction base="xs:string">
@@ -2279,6 +2371,7 @@
       <xs:element name="maxFertility" type="xs:float" />
       <xs:element name="minSize" type="xs:int" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="terrainThreshold">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
@@ -2286,15 +2379,20 @@
       <xs:element name="min" type="xs:float" />
       <xs:element name="max" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="weatherCommonalityRecord">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xs:element name="weather" type="xs:string" />
       <xs:element name="commonality" type="xs:float" />
     </xs:choice>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="defModExtension">
-    <xs:choice minOccurs="1" maxOccurs="unbounded" />
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+    </xs:sequence>
+    <xs:attribute name="Class" type="xs:string" />
   </xs:complexType>
   <xs:element name="Defs">
     <xs:complexType>
@@ -2315,6 +2413,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="BillStoreModeDef">
@@ -2333,6 +2434,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="BiomeDef">
@@ -2397,6 +2501,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="BodyTypeDef">
@@ -2417,6 +2524,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ChemicalDef">
@@ -2445,6 +2555,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="DifficultyDef">
@@ -2487,6 +2600,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ExpectationDef">
@@ -2508,6 +2624,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="FactionDef">
@@ -2622,6 +2741,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="FeatureDef">
@@ -2667,6 +2789,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="FleshTypeDef">
@@ -2694,6 +2819,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="HairDef">
@@ -2720,6 +2848,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="HediffGiverSetDef">
@@ -2744,6 +2875,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="HibernatableStateDef">
@@ -2761,6 +2895,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="HistoryAutoRecorderDef">
@@ -2782,6 +2919,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="HistoryAutoRecorderGroupDef">
@@ -2811,6 +2951,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="IncidentCategoryDef">
@@ -2830,6 +2973,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="IncidentDef">
@@ -2919,6 +3065,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="IncidentTargetTagDef">
@@ -2936,6 +3085,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="InspirationDef">
@@ -3027,6 +3179,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="InteractionDef">
@@ -3054,6 +3209,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="JoyGiverDef">
@@ -3094,6 +3252,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="JoyKindDef">
@@ -3112,6 +3273,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="LifeStageDef">
@@ -3149,6 +3313,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="MainButtonDef">
@@ -3173,6 +3340,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="NeedDef">
@@ -3208,6 +3378,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PawnColumnDef">
@@ -3239,6 +3412,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PawnGroupKindDef">
@@ -3257,6 +3433,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PawnRelationDef">
@@ -3289,6 +3468,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PawnTableDef">
@@ -3315,6 +3497,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PawnsArrivalModeDef">
@@ -3339,6 +3524,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PrisonerInteractionModeDef">
@@ -3357,6 +3545,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RaidStrategyDef">
@@ -3390,6 +3581,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RecordDef">
@@ -3416,6 +3610,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ResearchTabDef">
@@ -3433,6 +3630,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RiverDef">
@@ -3464,6 +3664,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RoadDef">
@@ -3503,6 +3706,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RoadPathingDef">
@@ -3520,6 +3726,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RoadWorldLayerDef">
@@ -3539,6 +3748,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RuleDef">
@@ -3564,6 +3776,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ScenPartDef">
@@ -3590,6 +3805,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ScenarioDef">
@@ -3607,6 +3825,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="SiteCoreDef">
@@ -3647,6 +3868,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="SitePartDef">
@@ -3686,6 +3910,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="SkillDef">
@@ -3708,6 +3935,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="StatCategoryDef">
@@ -3727,6 +3957,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="StatDef">
@@ -3814,6 +4047,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="StoryEventDef">
@@ -3832,6 +4068,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="StorytellerDef">
@@ -3873,6 +4112,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="StuffCategoryDef">
@@ -3890,6 +4132,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TaleDef">
@@ -3921,6 +4166,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ThingSetMakerDef">
@@ -3940,6 +4188,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ThoughtDef">
@@ -4004,6 +4255,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TimeAssignmentDef">
@@ -4024,6 +4278,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TraderKindDef">
@@ -4052,6 +4309,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TrainableDef">
@@ -4090,6 +4350,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TraitDef">
@@ -4138,6 +4401,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TransferableSorterDef">
@@ -4156,6 +4422,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ConceptDef">
@@ -4185,6 +4454,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="InstructionDef">
@@ -4240,6 +4512,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="WorldObjectDef">
@@ -4294,6 +4569,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="Def">
@@ -4311,6 +4589,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ApparelLayerDef">
@@ -4329,6 +4610,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="BodyDef">
@@ -4347,6 +4631,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="BodyPartDef">
@@ -4399,6 +4686,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="BodyPartGroupDef">
@@ -4418,6 +4708,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="BodyPartTagDef">
@@ -4436,6 +4729,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ClamorDef">
@@ -4453,6 +4749,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="DamageArmorCategoryDef">
@@ -4472,6 +4771,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="DamageDef">
@@ -4538,6 +4840,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="StuffAppearanceDef">
@@ -4556,6 +4861,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="DesignationCategoryDef">
@@ -4582,6 +4890,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="DesignationDef">
@@ -4603,6 +4914,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="DesignatorDropdownGroupDef">
@@ -4620,6 +4934,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="DutyDef">
@@ -4643,6 +4960,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="EffecterDef">
@@ -4668,6 +4988,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="GameConditionDef">
@@ -4690,6 +5013,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="GenStepDef">
@@ -4710,6 +5036,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="HediffDef">
@@ -4771,6 +5100,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ImpactSoundTypeDef">
@@ -4789,6 +5121,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ImplementOwnerTypeDef">
@@ -4808,6 +5143,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="JobDef">
@@ -4846,6 +5184,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="KeyBindingCategoryDef">
@@ -4872,6 +5213,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="KeyBindingDef">
@@ -4900,6 +5244,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="LetterDef">
@@ -4926,6 +5273,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="LogEntryDef">
@@ -4946,6 +5296,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ManeuverDef">
@@ -4970,6 +5323,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="MapGeneratorDef">
@@ -4994,6 +5350,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="MentalBreakDef">
@@ -5017,6 +5376,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="MentalStateDef">
@@ -5065,6 +5427,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="MessageTypeDef">
@@ -5083,6 +5448,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PawnCapacityDef">
@@ -5113,6 +5481,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="PawnKindDef">
@@ -5210,6 +5581,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RecipeDef">
@@ -5313,6 +5687,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ResearchProjectDef">
@@ -5368,6 +5745,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ResearchProjectTagDef">
@@ -5385,6 +5765,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ReservationLayerDef">
@@ -5402,6 +5785,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RoofDef">
@@ -5424,6 +5810,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RoomRoleDef">
@@ -5442,6 +5831,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RoomStatDef">
@@ -5473,6 +5865,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="RulePackDef">
@@ -5497,6 +5892,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ScatterableDef">
@@ -5520,6 +5918,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ShaderTypeDef">
@@ -5538,6 +5939,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="SongDef">
@@ -5568,6 +5972,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="SoundDef">
@@ -5608,6 +6015,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="SubcameraDef">
@@ -5628,6 +6038,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TerrainAffordanceDef">
@@ -5646,6 +6059,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TerrainDef">
@@ -5785,6 +6201,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ThingCategoryDef">
@@ -5805,6 +6224,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ThingDef">
@@ -6078,6 +6500,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ThinkTreeDef">
@@ -6098,6 +6523,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="ToolCapacityDef">
@@ -6115,6 +6543,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="TrainabilityDef">
@@ -6133,6 +6564,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="WeatherDef">
@@ -6185,6 +6619,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="WorkGiverDef">
@@ -6243,6 +6680,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="WorkGiverEquivalenceGroupDef">
@@ -6260,6 +6700,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="WorkTypeDef">
@@ -6293,6 +6736,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="WorldGenStepDef">
@@ -6312,6 +6758,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:element name="SpecialThingFilterDef">
@@ -6334,6 +6783,9 @@
                 </xs:complexType>
               </xs:element>
             </xs:choice>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="ParentName" type="xs:string" />
+            <xs:attribute name="Class" type="xs:string" />
           </xs:complexType>
         </xs:element>
         <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
