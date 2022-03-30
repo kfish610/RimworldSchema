@@ -52,7 +52,7 @@ namespace RimworldSchema
                 where type.IsClass && !type.IsAbstract && typeof(Def).IsAssignableFrom(type)
                 select type;
 
-            XmlSchema schema = new XmlSchema
+            var schema = new XmlSchema
             {
                 TargetNamespace = "https://github.com/kfish610/RimWorldSchema",
                 ElementFormDefault = XmlSchemaForm.Qualified
